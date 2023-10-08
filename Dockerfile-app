@@ -1,0 +1,13 @@
+# Atencao: Criar imagem usando como imagem base python:3.8-alpime
+FROM python:3.8-alpine
+
+# Nao e' necessario atualizar nada aqui
+WORKDIR /app
+COPY source_code/ /app
+
+# Atencao: Instalar dependencias definidas no arquivo requirements.txt
+RUN pip install flask
+RUN pip install pymysql
+
+# Nao e' necessario atualizar nada aqui
+ENTRYPOINT ["python", "server.py"]

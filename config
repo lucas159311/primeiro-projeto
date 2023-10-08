@@ -1,0 +1,7 @@
+[core]
+	repositoryformatversion = 0
+	filemode = true
+	bare = true
+[remote "origin"]
+	url = http://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@github.com/svianrio/projeto1.git
+	fetch = +refs/heads/*:refs/remotes/origin/*

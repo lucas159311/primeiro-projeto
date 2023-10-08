@@ -1,0 +1,23 @@
+version: '1'
+
+services:
+  phonebook-mysql:
+    container_name: phonebook-mysql
+    build:
+      context: .
+      # Atencao: Incluir referencia para o nome do dockerfile de especificacao da imagem do backend 
+      dockerfile: Dockerfile-mysql
+    restart: always
+
+  phonebook-app:
+    container_name: phonebook-app
+    build:
+      context: .
+      # Atencao: Incluir referencia para o nome do dockerfile de especificacao da imagem do frontend
+      dockerfile: Dockerfile-app
+    depends_on:
+      - phonebook-mysql
+    ports:
+      # Atencao: especificar o mapeamento da porta TCP que o frontend deve atender 8181:8181
+      - "8181:8181"
+    restart: always
